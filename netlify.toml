@@ -4,9 +4,10 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-# For SPA routing (if you're using client-side routing)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true

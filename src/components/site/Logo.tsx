@@ -1,25 +1,27 @@
-import logo from "@/assets/mod-arts-logo.asset.json";
+// src/components/site/Logo.tsx
 
-export function Logo({ className = "h-10", showText = true }: { className?: string; showText?: boolean }) {
+export function Logo() {
+  // 使用方案一：Cloudinary 直接生成圆形图片
+  const logoSrc =
+    "https://res.cloudinary.com/dtmgyzviw/image/upload/c_thumb,r_max/v1782051953/Screenshot_2026-06-21_072529_umumpu.png";
+
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2.5">
+      {/* 圆形 Logo 图片 */}
       <img
-        src={logo.url}
+        src={logoSrc}
         alt="MOD-Arts School of Music"
-        className={`${className} w-auto object-contain`}
-        width={48}
-        height={48}
+        className="h-12 w-12 object-cover" // 固定宽高，保持圆形
       />
-      {showText && (
-        <div className="leading-none">
-          <div className="font-display text-xl font-extrabold tracking-tight text-navy">
-            <span className="text-gold">MOD</span>-ARTS
-          </div>
-          <div className="mt-0.5 text-[10px] font-semibold tracking-[0.22em] text-navy/70">
-            SCHOOL OF MUSIC
-          </div>
-        </div>
-      )}
+      {/* 品牌名称文字 */}
+      <div>
+        <span className="font-display text-xl font-bold tracking-tight text-navy">
+          MOD<span className="text-gold">Arts</span>
+        </span>
+        <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-navy/60">
+          School of Music
+        </span>
+      </div>
     </div>
   );
 }
